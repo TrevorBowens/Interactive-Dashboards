@@ -10,6 +10,7 @@ function buildMetadata(sample) {
     // Use d3 to select the panel with id of `#sample-metadata`
     d3.json("/metadata/" + sample).then(function(data){
       panel = d3.select("#sample-metadata");
+      panel.html("");
       object.entries(data).forEach(function([key, value]){
         panel.append("p").html(key + ": "+ value);
       });
